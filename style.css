@@ -1,0 +1,151 @@
+:root {
+    --bg: #030303;
+    --accent: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+    --glass: rgba(255, 255, 255, 0.03);
+}
+
+body {
+    background-color: var(--bg);
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Gradient Background Glow */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #030303 100%);
+}
+
+.gradient-text {
+    background: var(--accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.glass-nav {
+    background: rgba(3, 3, 3, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-card {
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    color: white;
+    transition: 0.4s ease;
+}
+
+.product-card:hover {
+    border-color: #6366f1;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.founder-card .img-wrapper img {
+    width: 150px;
+    height: 150px;
+    border: 3px solid #6366f1;
+    padding: 5px;
+    object-fit: cover;
+}
+
+.btn-gradient {
+    background: var(--accent);
+    color: white !important;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+}
+
+/* Styling for Founder Photos */
+.img-wrapper img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border: 3px solid transparent;
+    background-image: linear-gradient(var(--bg), var(--bg)), var(--accent);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    padding: 5px; /* Creates the space for the gradient border */
+}
+
+.border-gradient {
+    transition: transform 0.3s ease;
+}
+
+.founder-card:hover .border-gradient {
+    transform: scale(1.05);
+}
+
+/* Tracking/Letter spacing for that modern look */
+.ls-widest {
+    letter-spacing: 0.2rem;
+}
+/* Styling the Form Inputs to match the theme */
+.form-control:focus {
+    background-color: #111 !important;
+    border-color: #6366f1 !important;
+    color: white;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+.modal-content {
+    background: rgba(10, 10, 10, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+/* High Visibility Heading */
+.hero-name {
+    color: #ffffff; /* Pure White */
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Soft White Glow */
+}
+
+/* Move the gradient to a subtle "Highlight" or a thin underline */
+.highlight {
+    background: linear-gradient(to right, #007CF0, #00DFD8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* This targets the placeholder text specifically */
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.8) !important; /* Bright White with slight transparency */
+    font-weight: 400;
+}
+
+/* Ensure the text the person types is ALSO pure white */
+.form-control {
+    background-color: #1a1a1a !important; /* Slightly lighter than pure black for contrast */
+    border: 1px solid #333 !important;
+    color: #ffffff !important; /* Pure white text when typing */
+    border-radius: 10px;
+    padding: 12px;
+}
+
+/* Add a glow when the user clicks the box */
+.form-control:focus {
+    background-color: #222 !important;
+    border-color: #6366f1 !important; /* Your brand color */
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+    outline: none;
+}
+/* Ensure the footer is at the very bottom and visible */
+footer {
+    position: relative;
+    z-index: 10; /* Keeps it above background glows */
+    background-color: #050505 !important; /* Matches your body bg */
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    margin-top: 50px;
+    padding: 40px 0;
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, 0.6) !important; /* Light gray for 'All Rights Reserved' */
+}
+
+.footer-brand {
+    color: #ffffff !important; /* Pure white for 'Halcyon' */
+}
