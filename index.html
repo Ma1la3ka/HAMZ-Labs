@@ -3,211 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halcyon | Future of Edu-Tech</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>Hamz Labs | Future of Tech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">HALCYON<span class="dot">.</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+    <!-- Animated Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Scan line overlay -->
+    <div class="scanlines"></div>
+
+    <!-- NAV -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+           <a class="nav-brand" href="#">
+    <svg width="28" height="28" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" style="margin-right:8px; flex-shrink:0;">
+        <defs>
+            <linearGradient id="gP" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6366f1"/>
+                <stop offset="50%" stop-color="#a855f7"/>
+                <stop offset="100%" stop-color="#ec4899"/>
+            </linearGradient>
+            <linearGradient id="gC" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#00DFD8"/>
+                <stop offset="100%" stop-color="#6366f1"/>
+            </linearGradient>
+        </defs>
+        <!-- Corner scan brackets -->
+        <path d="M4 9 L4 3 L10 3" fill="none" stroke="url(#gP)" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M26 3 L32 3 L32 9" fill="none" stroke="url(#gP)" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M4 27 L4 33 L10 33" fill="none" stroke="url(#gP)" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M26 33 L32 33 L32 27" fill="none" stroke="url(#gP)" stroke-width="1.8" stroke-linecap="round"/>
+        <!-- H left vertical -->
+        <rect x="8" y="8" width="5" height="20" rx="1" fill="url(#gP)"/>
+        <!-- H right vertical -->
+        <rect x="23" y="8" width="5" height="20" rx="1" fill="url(#gP)"/>
+        <!-- H crossbar -->
+        <rect x="8" y="16" width="20" height="4" rx="1" fill="url(#gC)"/>
+        <!-- Center pulse dot -->
+        <circle cx="18" cy="18" r="2" fill="#00DFD8"/>
+    </svg>
+    <span class="brand-bracket">[</span>HAMZ<span class="brand-accent">LABS</span><span class="brand-bracket">]</span>
+    <span class="brand-cursor">_</span>
+</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                    <button class="btn btn-gradient ms-lg-3" data-bs-toggle="modal" data-bs-target="#contactModal">
-    Contact Us
-</button>
-                </ul>
-            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><button class="btn-cta" id="open-contact">Contact Us</button></li>
+            </ul>
         </div>
     </nav>
 
+    <!-- HERO -->
     <header class="hero-section">
-        <div class="container text-center">
-            <h1 class="display-2 fw-bold">Shaping <span id="typed-text" class="gradient-text"></span></h1>
-            <p class="lead text-secondary mx-auto mt-3 mb-5" style="max-width: 700px;">
-                Halcyon is an Edu-Tech powerhouse dedicated to digitizing the academic experience through smart infrastructure and AI.
+        <div class="hero-grid-overlay"></div>
+        <div class="hero-orb orb-1"></div>
+        <div class="hero-orb orb-2"></div>
+        <div class="container hero-content">
+            <div class="hero-tag">
+                <span class="tag-dot"></span>
+                <span>EST. 2026 · KWARA, NIGERIA</span>
+            </div>
+            <h1 class="hero-title">
+                Shaping <br>
+                <span class="typed-wrapper">
+                    <span id="typed-text" class="gradient-text"></span>
+                    <span class="typed-cursor">|</span>
+                </span>
+            </h1>
+            <p class="hero-sub">
+                Hamz Labs is a tech powerhouse dedicated to creating solutions to all problems tech can solve.
             </p>
-            <a href="#products" class="btn btn-outline-light btn-lg rounded-pill px-5">View Our Work</a>
+            <div class="hero-actions">
+                <a href="#products" class="btn-primary">View Our Work <span class="btn-arrow">→</span></a>
+                <a href="#about" class="btn-ghost">Our Vision</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num">01</span>
+                    <span class="stat-label">Flagship Product</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">04</span>
+                    <span class="stat-label">Co-Founders</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">∞</span>
+                    <span class="stat-label">Problems to Solve</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
         </div>
     </header>
 
-    <section id="products" class="py-5">
+    <!-- PRODUCTS -->
+    <section id="products" class="section">
         <div class="container">
-            <h6 class="text-primary text-uppercase fw-bold text-center">Our Ecosystem</h6>
-            <h2 class="display-5 fw-bold text-center mb-5 text-white">Our Products</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6">
-                    <div class="card product-card h-100">
-                        <div class="card-body p-5">
-                            <div class="badge bg-primary mb-3">Flagship Product</div>
-                            <h3 class="fw-bold">LOCUS-ID</h3>
-                            <p class="text-secondary">A revolutionary AI-driven attendance and identity management system designed for higher institutions.</p>
-                            <ul class="list-unstyled text-secondary">
-                                <li>✓ Facial Recognition Integration</li>
-                                <li>✓ Real-time Analytics</li>
-                                <li>✓ Secure Cloud Database</li>
-                            </ul>
-                        </div>
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span>OUR ECOSYSTEM</span>
+                <span class="label-line"></span>
+            </div>
+            <h2 class="section-title">Our Products</h2>
+
+            <div class="product-showcase">
+                <div class="product-card-main">
+                    <div class="product-badge">
+                        <span class="badge-dot"></span> Flagship Product
                     </div>
-                </div>
-            </div>
-        </div>
-        <section id="about" class="py-100 bg-black">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-5 mb-lg-0">
-                <h6 class="text-primary fw-bold text-uppercase ls-2">Our Vision</h6>
-                <h2 class="display-5 fw-bold text-white mb-4">Beyond Simple <br><span class="highlight">Attendance.</span></h2>
-                <p class="text-secondary lead">
-                    At Halcyon, we recognized a massive gap in how schools manage their most important asset: <strong>Time.</strong> 
-                </p>
-                <p class="text-secondary">
-                    Manual registers are prone to proxy, errors, and loss. We built <strong>LOCUS-ID</strong> to return those lost hours to educators while providing 100% accurate data for institutional growth.
-                </p>
-            </div>
-            <div class="col-lg-6">
-                <div class="glass-card p-4 border-gradient-top">
-                    <div class="d-flex mb-3">
-                        <div class="feature-icon bg-primary-soft me-3">🚀</div>
+                    <div class="product-header">
                         <div>
-                            <h5 class="text-white fw-bold">Innovation First</h5>
-                            <p class="small text-secondary">Using cutting-edge AI to solve everyday campus problems.</p>
+                            <h3 class="product-name">LOCUS<span class="accent">-ID</span></h3>
+                            <p class="product-tagline">AI-Driven Identity & Attendance</p>
+                        </div>
+                        <div class="product-icon-wrap">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="14" r="7" stroke="#6366f1" stroke-width="1.5"/>
+                                <path d="M5 35c0-8.284 6.716-15 15-15s15 6.716 15 15" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round"/>
+                                <circle cx="20" cy="14" r="3" fill="#6366f1" opacity="0.4"/>
+                            </svg>
                         </div>
                     </div>
-                    <div class="d-flex mb-3">
-                        <div class="feature-icon bg-primary-soft me-3">🔒</div>
+                    <p class="product-desc">A revolutionary AI-driven attendance and identity management system designed for higher institutions. Eliminating proxy attendance and manual errors for good.</p>
+                    <ul class="feature-list">
+                        <li><span class="feat-check">✓</span> Facial Recognition Integration</li>
+                        <li><span class="feat-check">✓</span> Real-time Analytics Dashboard</li>
+                        <li><span class="feat-check">✓</span> Secure Cloud Database</li>
+                        <li><span class="feat-check">✓</span> Biometric Data Encryption</li>
+                    </ul>
+                    <div class="product-footer">
+                        <span class="status-indicator"><span class="status-dot"></span> In Development</span>
+                    </div>
+                </div>
+
+                <div class="product-visual">
+                    <div class="visual-card vc-1">
+                        <div class="vc-icon">🚀</div>
                         <div>
-                            <h5 class="text-white fw-bold">Security & Privacy</h5>
-                            <p class="small text-secondary">Bank-grade encryption for all student biometric data.</p>
+                            <div class="vc-title">Innovation First</div>
+                            <div class="vc-sub">Cutting-edge AI for campus problems</div>
                         </div>
                     </div>
-                    <div class="d-flex">
-                        <div class="feature-icon bg-primary-soft me-3">📊</div>
+                    <div class="visual-card vc-2">
+                        <div class="vc-icon">🔒</div>
                         <div>
-                            <h5 class="text-white fw-bold">Data Driven</h5>
-                            <p class="small text-secondary">Providing insights that help schools make better decisions.</p>
+                            <div class="vc-title">Bank-Grade Security</div>
+                            <div class="vc-sub">Encrypted biometric storage</div>
                         </div>
                     </div>
+                    <div class="visual-card vc-3">
+                        <div class="vc-icon">📊</div>
+                        <div>
+                            <div class="vc-title">Data Driven</div>
+                            <div class="vc-sub">Insights for better decisions</div>
+                        </div>
+                    </div>
+                    <div class="visual-orb"></div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-    </section>
-    <section id="team" class="py-5 bg-black">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h6 class="text-primary text-uppercase fw-bold ls-widest">The Minds Behind Halcyon</h6>
-                <h2 class="display-5 fw-bold text-white">Meet Our Co-Founders</h2>
-                <p class="text-secondary mx-auto mt-3" style="max-width: 600px;">
-                    A specialized team of innovators dedicated to transforming the educational landscape.
-                </p>
-            </div>
-
-            <class class="row g-4">
-                <div class="col-md-4">
-                    <div class="founder-card text-center p-4 glass-card">
-                        <div class="img-wrapper mb-4">
-                            <!-- <div class="profile-avatar border-gradient" style="background-image: url('C:\\Users\\USER\\Desktop\\Company_website\\images\\raji-abdulmalik.jpg');"></div> -->
-                        </div>
-                        <h4 class="fw-bold mb-1">Raji AbdulMalik</h4>
-                        <p class="gradient-text fw-bold small text-uppercase">Co-Founder & CTO</p>
-                        <p class="text-secondary small">AI Architect leading the development of LOCUS-ID and smart campus systems.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="founder-card text-center p-4 glass-card">
-                        <div class="img-wrapper mb-4">
-                            <!-- <img src="pm-founder.jpg" alt="Project Manager" class="img-fluid rounded-circle border-gradient"> -->
-                        </div>
-                        <h4 class="fw-bold mb-1">Oyewale AbdulZahir</h4>
-                        <p class="gradient-text fw-bold small text-uppercase">Co-Founder & Project Manager</p>
-                        <p class="text-secondary small">Bridging the gap between technical execution and academic requirements.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="founder-card text-center p-4 glass-card">
-                        <div class="img-wrapper mb-4">
-                            <!-- <img src="ops-founder.jpg" alt="Operations" class="img-fluid rounded-circle border-gradient"> -->
-                        </div>
-                        <h4 class="fw-bold mb-1">Balogun Fadhlullah</h4>
-                        <p class="gradient-text fw-bold small text-uppercase">Co-Founder & Ops Lead</p>
-                        <p class="text-secondary small">Driving school partnerships and scaling Halcyon's reach across institutions.</p>
-                    </div>
-                </div>
-
-                 <div class="col-md-4">
-                    <div class="founder-card text-center p-4 glass-card">
-                        <div class="img-wrapper mb-4">
-                            <!-- <img src="ops-founder.jpg" alt="Operations" class="img-fluid rounded-circle border-gradient"> -->
-                        </div>
-                        <h4 class="fw-bold mb-1">Abolaji Abdul-Rahman</h4>
-                        <p class="gradient-text fw-bold small text-uppercase">Co-Founder & AWS Cloud developer</p>
-                        <p class="text-secondary small">Utilizing the use of AWS services to build scalable and robust cloud solutions.</p>
-                    </div>
-                </div>
-            </class>
         </div>
     </section>
-<div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content glass-card p-4">
-            <div class="modal-header border-0">
-                <h5 class="modal-title fw-bold text-white">Get in Touch with <span class="gradient-text">Halcyon</span></h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
 
+    <!-- ABOUT -->
+    <section id="about" class="section about-section">
+        <div class="about-bg-line"></div>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="section-label left-align">
+                        <span class="label-line short"></span>
+                        <span>OUR VISION</span>
+                    </div>
+                    <h2 class="section-title left-align">
+                        Beyond Simple<br>
+                        <span class="highlight">Attendance.</span>
+                    </h2>
+                    <p class="about-lead">
+                      We believe that technology is a universal bridge. At <strong>HAMZ Labs</strong>, we are committed to identifying systemic gaps in any industry and closing them with 
+                      precision-engineered digital tools. Whether it is improving operational transparency, automating redundant tasks, or securing critical data, we are building a versatile ecosystem of <strong>solutions.</strong> 
+                    </p>
+                  
+                    <div class="about-metrics">
+                        <div class="metric">
+                            <span class="metric-val">100%</span>
+                            <span class="metric-label">Accurate Data</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-val">0</span>
+                            <span class="metric-label">Manual Errors</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-val">∞</span>
+                            <span class="metric-label">Scalability</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="term-dot red"></span>
+                            <span class="term-dot yellow"></span>
+                            <span class="term-dot green"></span>
+                            <span class="term-title">locus-id_system.log</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">./scan --mode facial</span></div>
+                            <div class="term-line term-output">Initializing biometric scan...</div>
+                            <div class="term-line term-success">✓ Student identified: ID-2024-0441</div>
+                            <div class="term-line term-output">Logging attendance to cloud...</div>
+                            <div class="term-line term-success">✓ Record saved. Timestamp: 08:32:17</div>
+                            <div class="term-line term-output">Updating analytics dashboard...</div>
+                            <div class="term-line term-success">✓ Attendance rate: 94.7%</div>
+                            <div class="term-line"><span class="term-prompt">$</span> <span class="term-blink">_</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="section">
+        <div class="container">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span>THE BUILDERS</span>
+                <span class="label-line"></span>
+            </div>
+            <h2 class="section-title">Meet Our Co-Founders</h2>
+            <p class="section-sub">A specialized team of innovators dedicated to transforming the educational landscape.</p>
+
+            <div class="team-grid">
+
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <div class="avatar-placeholder">
+                            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="22" r="11" stroke="url(#grad1)" stroke-width="1.5"/>
+                                <path d="M8 54c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="url(#grad1)" stroke-width="1.5" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="grad1" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#6366f1"/>
+                                        <stop offset="100%" stop-color="#ec4899"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <div class="founder-info">
+                        <h4 class="founder-name">Raji AbdulMalik</h4>
+                        <p class="founder-role">Co-Founder & CTO</p>
+                        <p class="founder-bio">AI/ML Engineer | Architecting the technical foundation of tomorrow's solutions.</p>
+                    </div>
+                    <div class="founder-glow"></div>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <div class="avatar-placeholder">
+                            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="22" r="11" stroke="url(#grad2)" stroke-width="1.5"/>
+                                <path d="M8 54c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="url(#grad2)" stroke-width="1.5" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="grad2" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#a855f7"/>
+                                        <stop offset="100%" stop-color="#6366f1"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <div class="founder-info">
+                        <h4 class="founder-name">Oyewale AbdulZahir</h4>
+                        <p class="founder-role">Co-Founder & Project Manager</p>
+                        <p class="founder-bio">Bridging the gap between technical execution and business requirements.</p>
+                    </div>
+                    <div class="founder-glow"></div>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <div class="avatar-placeholder">
+                            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="22" r="11" stroke="url(#grad3)" stroke-width="1.5"/>
+                                <path d="M8 54c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="url(#grad3)" stroke-width="1.5" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="grad3" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#ec4899"/>
+                                        <stop offset="100%" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <div class="founder-info">
+                        <h4 class="founder-name">Balogun Fadhlullah</h4>
+                        <p class="founder-role">Co-Founder & CTO</p>
+                        <p class="founder-bio">Full-stack web developer | Building robust and scalable systems end-to-end.</p>
+                    </div>
+                    <div class="founder-glow"></div>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <div class="avatar-placeholder">
+                            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="22" r="11" stroke="url(#grad4)" stroke-width="1.5"/>
+                                <path d="M8 54c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="url(#grad4)" stroke-width="1.5" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="grad4" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#00DFD8"/>
+                                        <stop offset="100%" stop-color="#6366f1"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <div class="founder-info">
+                        <h4 class="founder-name">Abolaji Abdul-Rahman</h4>
+                        <p class="founder-role">Co-Founder & Business Strategist</p>
+                        <p class="founder-bio">Driving strategic initiatives to scale HAMZ Labs and expand our impact in the tech space.</p>
+                    </div>
+                    <div class="founder-glow"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT MODAL -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-box" id="modal-box">
+            <button class="modal-close" id="modal-close">✕</button>
+            <div class="modal-header">
+                <h5 class="modal-title">Get in Touch with <span class="gradient-text">HAMZ Labs</span></h5>
+                <p class="modal-sub">Let's build the future together.</p>
+            </div>
             <form id="contact-form">
-    <input type="hidden" name="access_key" value="68aac6e2-82b0-43a9-8006-17f344a8bfff">
-
-    <div class="mb-3">
-        <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-    </div>
-    <div class="mb-2">
-        <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-    </div>
-    <div class="mb-3">
-        <textarea name="message" class="form-control" rows="4" placeholder="How can Halcyon help?" required></textarea>
-    </div>
-
-    <div id="result" class="mt-3 small fw-bold"></div>
-
-    <button type="submit" id="submit-btn" class="btn btn-primary w-100 py-2 mt-2">Send Message</button>
-</form>
-        </div> </div> </div> <footer class="footer mt-auto py-5 bg-black">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-12">
-                <h3 class="fw-bold text-white mb-3">HALCYON<span class="text-primary">.</span></h3>
-                
-                <p class="footer-text mb-2 text-secondary">
-                    &copy; 2026 <span class="text-white fw-bold">Halcyon Technologies</span>. All Rights Reserved.
-                </p>
-                
-                <div class="mt-3">
-                    <a href="#about" class="text-secondary text-decoration-none mx-2 small">About</a>
-                    <a href="#products" class="text-secondary text-decoration-none mx-2 small">Products</a>
-                    <a href="#" class="text-secondary text-decoration-none mx-2 small" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+                <input type="hidden" name="access_key" value="68aac6e2-82b0-43a9-8006-17f344a8bfff">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" class="form-input" placeholder="Your name" required>
                 </div>
-                
-                <p class="text-muted mt-4" style="font-size: 11px; letter-spacing: 1px;">
-                    DIGITIZING THE ACADEMIC EXPERIENCE
-                </p>
-            </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" class="form-input" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message" class="form-input" rows="4" placeholder="How can Hamz Labs help?" required></textarea>
+                </div>
+                <div id="result" class="form-result"></div>
+                <button type="submit" id="submit-btn" class="btn-submit">
+                    <span>Send Message</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </form>
         </div>
     </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-glow"></div>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="brand-bracket">[</span>HAMZ<span class="brand-accent">LABS</span><span class="brand-bracket">]</span>
+            </div>
+            <p class="footer-tagline">Digitizing Experience. Engineering Solutions. Solving Everything Else.</p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#team">Team</a>
+                <a href="#" id="footer-contact">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 HAMZ Labs Technologies. All Rights Reserved.</p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
