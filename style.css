@@ -178,7 +178,7 @@ body {
     border: none;
     cursor: pointer;
     padding: 4px;
-    z-index: 101;
+    z-index: 10000;
 }
 
 .hamburger span {
@@ -1049,8 +1049,13 @@ body {
 
     .nav-links {
     position: fixed;
-    top: 0; right: 0; bottom: 0;
+    top: 0; 
+    right: 0; 
+    bottom: 0;
+    left: auto;
     width: 260px;
+    min-height: 100%;
+    height: 100dvh;
     background: #0a0a14;
     flex-direction: column;
     align-items: flex-start;
@@ -1059,7 +1064,8 @@ body {
     transform: translateX(100%);
     transition: transform 0.3s ease;
     border-left: 1px solid var(--border);
-    z-index: 100;
+    z-index: 9999;
+    overflow-y: auto;
 }
     .nav-links.open { transform: translateX(0); }
 
