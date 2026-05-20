@@ -505,6 +505,8 @@ body {
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 16px;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .product-name {
@@ -1066,6 +1068,20 @@ body {
     border-left: 1px solid var(--border);
     z-index: 9999;
     overflow-y: auto;
+    
+.product-header {
+    flex-direction: row;
+    align-items: center;
+}
+
+.product-name {
+    font-size: 1.7rem;
+}
+
+.product-icon-wrap {
+    flex-shrink: 0;
+}
+    
 }
     .nav-links.open { transform: translateX(0); }
 
@@ -1109,6 +1125,20 @@ body {
         width: 100%;
         gap: 16px;
         padding: 16px 20px;
+
+
+    .product-name {
+    font-size: 1.5rem;
+}
+
+    .product-icon-wrap {
+        padding: 8px;
+    }
+
+    .product-icon-wrap svg {
+        width: 30px;
+        height: 30px;
+    }
     }
 }
 
