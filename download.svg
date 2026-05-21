@@ -1,0 +1,26 @@
+<svg width="28" height="28" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" style="margin-right:8px; flex-shrink:0;">
+        <defs>
+            <linearGradient id="gP" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6366f1"></stop>
+                <stop offset="50%" stop-color="#a855f7"></stop>
+                <stop offset="100%" stop-color="#ec4899"></stop>
+            </linearGradient>
+            <linearGradient id="gC" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#00DFD8"></stop>
+                <stop offset="100%" stop-color="#6366f1"></stop>
+            </linearGradient>
+        </defs>
+        <!-- Corner scan brackets -->
+        <path d="M4 9 L4 3 L10 3" fill="none" stroke="url(#gP)" stroke-width="1.8" stroke-linecap="round"></path>
+        <path d="M26 3 L32 3 L32 9" fill="none" stroke="url(#gP)" stroke-width="1.8" stroke-linecap="round"></path>
+        <path d="M4 27 L4 33 L10 33" fill="none" stroke="url(#gP)" stroke-width="1.8" stroke-linecap="round"></path>a
+        <path d="M26 33 L32 33 L32 27" fill="none" stroke="url(#gP)" stroke-width="1.8" stroke-linecap="round"></path>
+        <!-- H left vertical -->
+        <rect x="8" y="8" width="5" height="20" rx="1" fill="url(#gP)"></rect>
+        <!-- H right vertical -->
+        <rect x="23" y="8" width="5" height="20" rx="1" fill="url(#gP)"></rect>
+        <!-- H crossbar -->
+        <rect x="8" y="16" width="20" height="4" rx="1" fill="url(#gC)"></rect>
+        <!-- Center pulse dot -->
+        <circle cx="18" cy="18" r="2" fill="#00DFD8"></circle>
+    </svg>
